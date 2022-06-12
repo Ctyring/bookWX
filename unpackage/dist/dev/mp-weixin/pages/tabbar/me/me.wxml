@@ -1,0 +1,1 @@
+<uni-list u-s="{{['d']}}" u-i="56ebcb7f-0" bind:__l="__l"><uni-list-item u-s="{{['footer']}}" bindclick="{{a}}" u-i="56ebcb7f-1,56ebcb7f-0" bind:__l="__l"><image src="/static/logo.png" style="width:10vw;height:10vw" slot="footer"></image></uni-list-item></uni-list>
