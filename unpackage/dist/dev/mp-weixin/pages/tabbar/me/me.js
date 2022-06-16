@@ -1,21 +1,15 @@
 "use strict";
+require("../../../tools/api.js");
 var common_vendor = require("../../../common/vendor.js");
 const _sfc_main = {
   setup() {
-    const login = () => {
-      common_vendor.index.login({
-        provider: "weixin",
-        success: function(loginRes) {
-          console.log(loginRes.authResult);
-        },
-        fail: (error) => {
-          console.log(error.errMsg);
-        }
-      });
+    const avatarUrl = common_vendor.ref("/static/defaultPho.png");
+    const onChooseAvatar = (e) => {
+      avatarUrl.value = e.detail.avatarUrl;
     };
-    login();
     return {
-      login
+      avatarUrl,
+      onChooseAvatar
     };
   }
 };
@@ -31,7 +25,11 @@ if (!Math) {
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return {
-    a: common_vendor.o($setup.login)
+    a: $setup.avatarUrl,
+    b: common_vendor.o((...args) => $setup.onChooseAvatar && $setup.onChooseAvatar(...args)),
+    c: common_vendor.p({
+      clickable: "true"
+    })
   };
 }
 var MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "D:/webProject/bookWX/pages/tabbar/me/me.vue"]]);
